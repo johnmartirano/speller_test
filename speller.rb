@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pathname'
+
 require './lib/norm_hash.rb'
 require './lib/matcher.rb'
 
@@ -15,7 +17,7 @@ class SpellApp
 
     good_words=[]
     begin
-      file = File.open(dict_path)
+      file = File.open(Pathname.new(dict_path).realpath.to_s)
       file.each do |line|
         good_words << line.strip
       end

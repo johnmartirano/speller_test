@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pathname'
+
 class MisspellerApp
 
   def usage
@@ -11,11 +13,11 @@ class MisspellerApp
     @@vowels = ['a','e','i','o','u']
     @@good_words=[]
     begin
-      file = File.open(dict_path)
+      file = File.open(Pathname.new(dict_path).realpath.to_s)
       file.each do |line|
         @@good_words << line.strip
       end
-    rescue
+    rescue 
       usage
       exit
     end
@@ -25,7 +27,7 @@ class MisspellerApp
     while true
       puts misspell(@@good_words.sample)
       STDOUT.flush
-      sleep 0.1
+      #sleep 0.1
     end
   end
 
