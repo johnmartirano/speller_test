@@ -16,12 +16,12 @@ dictionary every time you want to spellcheck a word.
 
 For example:
 
-> sheeeeep
-sheep
-> peepple
-people
-> sheeple
-NO SUGGESTION
+    > sheeeeep
+    sheep
+    > peepple
+    people
+    > sheeple
+    NO SUGGESTION
 The class of spelling mistakes to be corrected is as follows:
 
 Case (upper/lower) errors: "inSIDE" => "inside"
