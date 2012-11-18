@@ -3,16 +3,15 @@
 class MisspellerApp
 
   def usage
-    puts 'Usage: misspeller.rb'
-    puts 'This program generates misspelled words from a dictionary text file.  It expects a dictionary file in the current directory called dict_words.txt'
-    puts 'If that file is not present, you can copy it from /usr/share/dict on most Unix systems.'
+    puts 'Usage: misspeller.rb [path_to_dictionary]'
+    puts 'This program generates misspelled words from a dictionary text file.  If you dont pass the dictionary file in, it will look for /usr/share/dict/words which is available on most Unix systems.'
   end
 
-  def initialize()
+  def initialize(dict_path)
     @@vowels = ['a','e','i','o','u']
     @@good_words=[]
     begin
-      file = File.open('./dict_words.txt')
+      file = File.open(dict_path)
       file.each do |line|
         @@good_words << line.strip
       end
@@ -26,7 +25,7 @@ class MisspellerApp
     while true
       puts misspell(@@good_words.sample)
       STDOUT.flush
-      #sleep 0.1
+      sleep 0.1
     end
   end
 
@@ -53,6 +52,20 @@ class MisspellerApp
 
 end
 
-app = MisspellerApp.new()
-app.run
+if __FILE__ == $0
+  if ARGV.length > 0
+    if ARGV[0] == '--help'
+      usage
+      exit
+    else
+      dict_path = ARGV[0]
+    end
+  else
+    dict_path = '/usr/share/dict/words'
+  end
+
+  app = MisspellerApp.new(dict_path)
+  app.run
+end
+
 
