@@ -1,6 +1,7 @@
 Written to satisfy the instructions below but with extras: word distance matcher based on position shifting and a proc generator for performing bitwise ORs on arbitrary number of arrays.
 
 Usage:
+
     speller.rb [path_to_dictionary_file]
     misspeller.rb [path_to_dictionary_file]
 
