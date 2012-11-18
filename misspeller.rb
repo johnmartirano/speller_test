@@ -6,7 +6,7 @@ class MisspellerApp
 
   def usage
     puts 'Usage: misspeller.rb [path_to_dictionary]'
-    puts 'This program generates misspelled words from a dictionary text file.  If you dont pass the dictionary file in, it will look for /usr/share/dict/words which is available on most Unix systems.'
+    puts 'This program generates misspelled words from a dictionary text file.  If you dont pass the dictionary file in, it will look for ./good_words.txt in the current directory.  If its not there, you can pass in or copy /usr/share/dict/words which is available on most Unix systems.'
   end
 
   def initialize(dict_path)
@@ -63,7 +63,7 @@ if __FILE__ == $0
       dict_path = ARGV[0]
     end
   else
-    dict_path = '/usr/share/dict/words'
+    dict_path = './good_words.txt'
   end
 
   app = MisspellerApp.new(dict_path)

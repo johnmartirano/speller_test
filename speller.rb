@@ -9,7 +9,7 @@ class SpellApp
 
   def usage
     puts 'Usage: speller.rb [path_to_dictionary]'
-    puts 'Speller requires a flat text dictionary file, either passed in on the command line or it will look for /usr/share/dict/words which is available on most Unix systems.'
+    puts 'Speller requires a flat text dictionary file, either passed in on the command line or it will look for ./good_words.txt in the current directory.'
   end
 
   def initialize(dict_path,stdin)
@@ -51,7 +51,7 @@ if __FILE__ == $0
       dict_path = ARGV[0]
     end
   else
-    dict_path = '/usr/share/dict/words'
+    dict_path = './good_words.txt'
   end
 
   app = SpellApp.new(dict_path,STDIN)

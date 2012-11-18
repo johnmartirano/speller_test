@@ -1,7 +1,7 @@
 
 # Matcher.match attempts to select best match for an input_word from 
 # an array of possabilities. The algorithm used is an experiment 
-# which attempts to determine the 'distance' between each 2 words.
+# which attempts to determine the 'distance' between 2 words.
 # This algorithm would be useless on arbitrary word comparisons but given
 # the grouping of normalized words in NormHash, it may be better than 
 # random selection
